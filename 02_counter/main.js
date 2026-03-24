@@ -33,9 +33,13 @@ let count = 0;
 
 const resultH1 = document.querySelector('h1');
 
-const plusButton = document.querySelector('#Pul');
+// const plusButton = document.querySelector('#Pul');
 
-plusButton.onclick = () => {
+// plusButton.onclick = () => { 
+//     count++;
+//     resultH1.innerHTML = count;
+// };
+function plus() {
     count++;
     resultH1.innerHTML = count;
-};
+}
