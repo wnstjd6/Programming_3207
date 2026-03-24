@@ -39,7 +39,7 @@ const resultH1 = document.querySelector('h1');
 //     count++;
 //     resultH1.innerHTML = count;
 // };
-function plus() {
-    count++;
+function plus(value) {
+    count += value || 1; // value가 undefined일 때 1을 더하도록 설정
     resultH1.innerHTML = count;
 }
