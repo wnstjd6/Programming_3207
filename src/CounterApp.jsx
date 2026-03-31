@@ -19,10 +19,17 @@ function CounterApp() {
       <button onClick={() => setCount((count) => count + 1)}>+</button>
       <button onClick={() => setCount((count) => count + 2)}>+2</button>
       <button onClick={() => setCount((count) => count - 1)}>-</button>
-      <button onClick={() => setCount(0)}>Reset</button>
-      {/* <button onClick={setCount(0)}>Reset</button> */} : onClick 이벤트 핸들러에 setCount(0) 함수를 직접 호출하는 것은 잘못된 방식입니다. 이렇게 하면 컴포넌트가 렌더링될 때마다 setCount(0)이 실행되어 count가 항상 0으로 초기화됩니다. 대신, onClick 이벤트 핸들러에 함수를 전달해야 합니다. 예를 들어, onClick={() => setCount(0)}와 같이 작성하면 버튼이 클릭될 때만 setCount(0)이 실행되어 count가 0으로 초기화됩니다.
+      <button onClick={() => setCount((count) => Math.min(count + 1, 10))}>+(최대10까지)</button>
+      {/* <button onClick={() => setCount((count) => count +1 >= 10 ? 10 : count + 1)}>+(최대10까지)</button> */}
 
-      
+      <button onClick={() => setCount(0)}>Reset</button>
+      {/* <button onClick={setCount(0)}>Reset</button>  
+      : onClick 이벤트 핸들러에 setCount(0) 함수를 직접 호출하는 것은 잘못된 방식입니다. 
+      이렇게 하면 컴포넌트가 렌더링될 때마다 setCount(0)이 실행되어 count가 항상 0으로 초기화됩니다. 
+      대신, onClick 이벤트 핸들러에 함수를 전달해야 합니다. 예를 들어, onClick={() => setCount(0)}와 같이 작성하면 버튼이 클릭될 때만 setCount(0)이 실행되어 count가 0으로 초기화됩10다.
+      */
+      }
+   
 
        {/* <button
           className="counter"
