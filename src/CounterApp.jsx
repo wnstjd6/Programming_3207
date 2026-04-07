@@ -8,6 +8,13 @@ function CounterApp() {
 
   //count : 이전 또는 현재 값. setCount() : count 값을 변경하는 함수, 반드시 이걸 거쳐야 함
   const [count, setCount] = useState(0)
+  function plusMax10() {  
+   setCount((count) => {     
+    if (count +1 >= 10) return 10;
+        return count + 1;
+    })
+  }
+  
   //
   {/*
 
@@ -19,10 +26,17 @@ function CounterApp() {
       <button onClick={() => setCount((count) => count + 1)}>+</button>
       <button onClick={() => setCount((count) => count + 2)}>+2</button>
       <button onClick={() => setCount((count) => count - 1)}>-</button>
+
       <button onClick={() => setCount((count) => Math.min(count + 1, 10))}>+(최대10까지)</button>
+      <button onClick={() => setCount((count) => {
+        if (count +1 >= 10) return 10;
+        return count + 1;
+      })
+      }>+(최대10까지)</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+      <button onClick={() => setCount((count) => plusMax10())}>+(최대10까지)</button>
       {/* <button onClick={() => setCount((count) => count +1 >= 10 ? 10 : count + 1)}>+(최대10까지)</button> */}
 
-      <button onClick={() => setCount(0)}>Reset</button>
       {/* <button onClick={setCount(0)}>Reset</button>  
       : onClick 이벤트 핸들러에 setCount(0) 함수를 직접 호출하는 것은 잘못된 방식입니다. 
       이렇게 하면 컴포넌트가 렌더링될 때마다 setCount(0)이 실행되어 count가 항상 0으로 초기화됩니다. 
