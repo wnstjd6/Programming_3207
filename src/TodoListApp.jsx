@@ -13,7 +13,6 @@ class Todo{
     this.id = id;
     this.text = text;
     this.isCompleted = isCompleted;
-  
   }
 }
 
@@ -30,13 +29,18 @@ function toggleTodo(id){
   setTodos((todos) => todos.map((todo) => 
     todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : todo
   ));
-
+}
+function deleteTodo(id) {
+  // todos를 하나씩 꺼내어 todo, todo.id === id  
+  setTodos((todos)=> 
+      todos.filter((todo) => todo.id !== id)
+  )
 }
   return (
     <div className="todo">
       <TodoHeader />
       <TodoAdder addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
   )
 }
