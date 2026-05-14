@@ -6,3 +6,7 @@ vanilla HTML, JavaScript
 npm create vite@latest .
 ```
 ### CounterApp 시작 🫠
+
+`style={{}}`
+-HomeApp : state 값을 변경하여 그에 맞는 컴포넌트를 표시하자
+
